@@ -15,6 +15,11 @@ dependencies {
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.6.3'
 }
 
+test{
+    useTestNG(){
+        suites "src/test/resources/HomeWork24.xml"
+    }
+}
 test {
     useTestNG() {
         //suites "src/test/resources/HomeWork17.xml"

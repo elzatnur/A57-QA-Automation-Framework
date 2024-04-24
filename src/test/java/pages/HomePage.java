@@ -5,32 +5,44 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BasePages{
-    public HomePage(WebDriver givenDriver){
+public class HomePage extends BasePages {
+    public HomePage(WebDriver givenDriver) {
 
         super(givenDriver);
     }
+
     //webElements
-   // By userAvatarIcon = By.cssSelector("img.avatar");
-    @FindBy(xpath = "//a[@href='#!/playlist/93564']")
+    // By userAvatarIcon = By.cssSelector("img.avatar");
+    @FindBy(xpath = "//a[@href='#!/songs']")
+    WebElement allSongs;
+    //@FindBy(xpath = "//a[@href='#!/playlist/93564']")
     WebElement playlistTest;
-    @FindBy(xpath = "//button[@class='del btn-delete-playlist']")
+    //@FindBy(xpath = "//button[@class='del btn-delete-playlist']")
     WebElement deleteSong;
-    @FindBy(xpath = "//div[@class='success show']")
+    //@FindBy(xpath = "//div[@class='success show']")
     WebElement getDeleteMessage;
 
     //Method using Page Factory
-    public HomePage playListName(String name){
+
+    public HomePage playListName(String name) {
         playlistTest.click();
         return this;
     }
-    public HomePage deleteExistingPlaylist(){
+
+    public HomePage deleteExistingPlaylist() {
         deleteSong.click();
         return this;
     }
-    public String getDeletedMessage(){
-       return getDeleteMessage.getText();
+
+    public String getDeletedMessage() {
+        return getDeleteMessage.getText();
     }
+
+    public HomePage allSongs() {
+       allSongs.click();
+       return this;
+    }
+
 }
 
 
