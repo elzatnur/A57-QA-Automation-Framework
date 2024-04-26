@@ -11,15 +11,20 @@ public class HomePage extends BasePages {
         super(givenDriver);
     }
 
-    //webElements
-    // By userAvatarIcon = By.cssSelector("img.avatar");
+    //webElements/locators
+    By userAvatarIcon = By.cssSelector("img.avatar");
+
+    public WebElement getUserAvatar() {
+        return findElement(userAvatarIcon);
+    }
+
     @FindBy(xpath = "//a[@href='#!/songs']")
-    WebElement allSongs;
-    //@FindBy(xpath = "//a[@href='#!/playlist/93564']")
+    WebElement getAllSongPage;
+    @FindBy(xpath = "//a[@href='#!/playlist/94286']")
     WebElement playlistTest;
-    //@FindBy(xpath = "//button[@class='del btn-delete-playlist']")
+    @FindBy(xpath = "//button[@class='del btn-delete-playlist']")
     WebElement deleteSong;
-    //@FindBy(xpath = "//div[@class='success show']")
+    @FindBy(xpath = "//div[@class='success show']")
     WebElement getDeleteMessage;
 
     //Method using Page Factory
@@ -39,8 +44,9 @@ public class HomePage extends BasePages {
     }
 
     public HomePage allSongs() {
-       allSongs.click();
-       return this;
+         getAllSongPage.click();
+         return this;
+
     }
 
 }

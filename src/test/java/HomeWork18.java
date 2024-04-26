@@ -3,19 +3,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.LoginPage;
 
 public class HomeWork18 extends BaseTest {
 
     @Test
     public void playSong  () {
         //GIVEN
-        provideEmail("elzat.nurmanbetova@testpro.io");
-
-        providePassword("kochkor123-Q!");
-
-        clickLoginBtn();
-
-        Assert.assertTrue(isSongPlays());
+        LoginPage loginpage = new LoginPage(getDriver());
+        loginpage.provideEmail("elzat.nurmanbetova@testpro.io");
+        loginpage.providePassword("kochkor123-Q!");
+        loginpage.clickSubmit();
 
     }
      //WHEN

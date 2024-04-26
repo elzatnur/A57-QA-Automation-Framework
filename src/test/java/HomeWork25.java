@@ -4,7 +4,7 @@ import pages.LoginPage;
 
 public class HomeWork25 extends BaseTest{
     @Test
-    public void allSongs(){
+    public void clickPlayList(){
         LoginPage loginpage = new LoginPage(driver);
         HomePage homepage = new HomePage(driver);
         loginpage.provideEmailLogin("elzat.nurmanbetova@testpro.io")

@@ -6,13 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePages{
+    //constructor
     public LoginPage(WebDriver givenDriver){
         super(givenDriver);
     }
     //webElements
-    private By emailField = By.cssSelector("input[type='email']");
-    private By passwordField = By.cssSelector("input[type='password']");
-    private  By loginBtn = By.cssSelector("button[type='submit']");
+     By emailField = By.cssSelector("input[type='email']");
+     By passwordField = By.cssSelector("input[type='password']");
+     By loginBtn = By.cssSelector("button[type='submit']");
 
     //using page factory
     @FindBy(css = "input[type='email']")
@@ -22,7 +23,7 @@ public class LoginPage extends BasePages{
     @FindBy(css = "button[type='submit']")
     WebElement loginBtnLocator;
 
-    //helper methods
+    //helper page methods
 
     public void provideEmail(String email){
         findElement(emailField).sendKeys(email);
