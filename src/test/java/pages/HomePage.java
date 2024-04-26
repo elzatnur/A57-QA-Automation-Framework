@@ -18,6 +18,12 @@ public class HomePage extends BasePages {
         return findElement(userAvatarIcon);
     }
 
+    @FindBy(xpath = "//i[@data-testid='play-next-btn']")
+    WebElement playNextBtn;
+    @FindBy(xpath = "//span[@data-testid='play-btn']")
+    WebElement playBtn;
+    @FindBy(xpath = "//div[@data-testid='sound-bar-play']")
+    WebElement soundBar;
     @FindBy(xpath = "//a[@href='#!/songs']")
     WebElement getAllSongPage;
     @FindBy(xpath = "//a[@href='#!/playlist/94286']")
@@ -26,6 +32,9 @@ public class HomePage extends BasePages {
     WebElement deleteSong;
     @FindBy(xpath = "//div[@class='success show']")
     WebElement getDeleteMessage;
+    @FindBy(xpath = "//div[@class='text']")
+    WebElement emptyPage;
+
 
     //Method using Page Factory
 
@@ -47,6 +56,15 @@ public class HomePage extends BasePages {
          getAllSongPage.click();
          return this;
 
+    }
+    public HomePage clickPlay(){
+        playNextBtn.click();
+        playBtn.click();
+        return this;
+    }
+    public boolean isSongPlays(){
+        soundBar.isDisplayed();
+        return soundBar.isDisplayed();
     }
 
 }

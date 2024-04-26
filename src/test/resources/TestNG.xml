@@ -6,9 +6,9 @@
         <classes>
             <class name="BaseTest"/>
             <class name = "LoginTest"/>
-            <class name="HomeWork24"/>
+            <class name="HomeWork18"/>
             <class name="HomeWork17"/>
-            <class name ="HomeWork18"/>
+            <class name="HomeWork25"/>
         </classes>
     </test>
 </suite>

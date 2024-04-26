@@ -11,5 +11,6 @@ public class HomeWork17 extends BaseTest{
       loginpage.providePassword("kochkor123-Q!");
       loginpage.clickSubmit();
       homepage.allSongs();
+
   }
 }
