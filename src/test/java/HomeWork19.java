@@ -10,14 +10,6 @@ public class HomeWork19 extends BaseTest{
         String expectedDeletedMsg = "Deleted playlist \"Test.\"";
 
         //GIVEN
-        provideEmail("elzat.nurmanbetova@testpro.io");
-        Thread.sleep(2000);
-
-        providePassword("kochkor123-Q!");
-        Thread.sleep(2000);
-
-        clickLoginBtn();
-        Thread.sleep(2000);
         //WHEN
         clickPlayList("Test");
         Thread.sleep(1000);
@@ -43,10 +35,4 @@ public class HomeWork19 extends BaseTest{
         return resultNoticeMsg.getText();
 
     }
-    //
-
-
-
-
-
 }

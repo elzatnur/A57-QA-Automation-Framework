@@ -26,7 +26,7 @@ public class HomePage extends BasePages {
     WebElement soundBar;
     @FindBy(xpath = "//a[@href='#!/songs']")
     WebElement getAllSongPage;
-    @FindBy(xpath = "//a[@href='#!/playlist/94286']")
+    @FindBy(xpath = "//a[@href='#!/playlist/94287']")
     WebElement playlistTest;
     @FindBy(xpath = "//button[@class='del btn-delete-playlist']")
     WebElement deleteSong;

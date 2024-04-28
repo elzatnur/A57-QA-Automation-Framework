@@ -9,7 +9,7 @@ import pages.LoginPage;
 public class HomeWork18 extends BaseTest {
 
     @Test
-    public void playSong () {
+    public void playSong()throws InterruptedException{
         //GIVEN
         LoginPage loginpage = new LoginPage(getDriver());
         HomePage homepage = new HomePage(getDriver());
@@ -17,7 +17,9 @@ public class HomeWork18 extends BaseTest {
         loginpage.providePassword("kochkor123-Q!");
         loginpage.clickSubmit();
         homepage.clickPlay();
+        Thread.sleep(20000);
         homepage.isSongPlays();
+        Thread.sleep(20000);
         Assert.assertTrue(homepage.isSongPlays());
     }
 }

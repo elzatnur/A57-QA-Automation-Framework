@@ -1,50 +1,23 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import pages.HomePage;
+import pages.LoginPage;
+import pages.PlaylistPage;
+@Test
 public class HomeWork21 extends BaseTest{
-    @Test
-    public void renamePlayList(){
-        String expectedResult = "Updated playlist \"Test2.\"";
-
-
-        //GIVEN
-        navigateToPage();
-        provideEmail("elzat.nurmanbetova@testpro.io");
-
-        providePassword("kochkor123-Q!");
-
-        clickLoginBtn();
-
-        //WHEN
-
-        doubleClickPlayList();
-        replacePlaylistName();
-        newPlayListName();
-
-
-        //THEN
-        Assert.assertEquals(newPlayListName(), expectedResult);
+    public void replacePlayListName () throws InterruptedException{
+        String PlayListName = "Test111";
+        String updatedPlaylistMsg = "Updated playlist \""+PlayListName+".\"";
+        LoginPage loginpage = new LoginPage(getDriver());
+        PlaylistPage playlistpage = new PlaylistPage(getDriver());
+        loginpage.login();
+        Thread.sleep(2000);
+        playlistpage.firstPlaylist();
+        Thread.sleep(2000);
+        playlistpage.playlistField();
+        Thread.sleep(2000);
+        playlistpage.newPlayListName();
+        Thread.sleep(2000);
+        Assert.assertEquals(playlistpage.newPlayListName(), updatedPlaylistMsg );
     }
-
-    public void replacePlaylistName() {
-        WebElement replaceName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='name']")));
-        replaceName.sendKeys(Keys.chord(Keys.COMMAND, "A", Keys.DELETE));
-        replaceName.sendKeys("Test2");
-        replaceName.sendKeys(Keys.ENTER);
-    }
-
-    public void doubleClickPlayList() {
-       WebElement playListName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[id='playlists']")));
-        actions.doubleClick(playListName).perform();
-    }
-
-    public String newPlayListName (){
-        WebElement newResult = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class= 'success show']")));
-        return newResult.getText();
-    }
-
 }
