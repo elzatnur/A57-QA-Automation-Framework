@@ -11,6 +11,5 @@ public class HomeWork25 extends BaseTest{
         loginpage.provideEmailLogin("elzat.nurmanbetova@testpro.io")
                 .providePasswordLogin("kochkor123-Q!")
                 .clickSubmitButton();
-        homepage.playListName("Test");
     }
 }
