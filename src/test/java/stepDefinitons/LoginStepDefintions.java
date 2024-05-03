@@ -67,4 +67,33 @@ public class LoginStepDefintions {
         driver.quit();
     }
 
+    @And("I enter incorrect password {string}")
+    public void iEnterIncorrectPassword(String arg0) {
+        LoginPage loginpage = new LoginPage(BaseDefinition.getDriver());
+
+    }
+    @Then("I still Login page")
+    public void iStillLoginPage() {
+        LoginPage loginpage = new LoginPage(BaseDefinition.getDriver());
+        Assert.assertTrue(loginpage.getRegistrationLink().isDisplayed());
+    }
+
+    @When("I enter not existing email")
+    public void iEnterNotExistingEmail(String email) {
+        LoginPage loginpage = new LoginPage(BaseDefinition.getDriver());
+        loginpage.provideEmail(email);
+    }
+
+    @When("I enter Empty email {string}")
+    public void iEnterEmptyEmail(String email) {
+        LoginPage loginpage = new LoginPage(BaseDefinition.getDriver());
+        loginpage.provideEmail(email);
+    }
+
+    @And("I enter Empty password {string}")
+    public void iEnterEmptyPassword(String password) {
+        LoginPage loginpage = new LoginPage(BaseDefinition.getDriver());
+        loginpage.providePassword(password);
+
+    }
 }

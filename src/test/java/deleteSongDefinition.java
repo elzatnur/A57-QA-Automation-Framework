@@ -2,8 +2,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
+import stepDefinitons.BaseDefinition;
+
 @Test
-public class HomeWork20 extends BaseTest{
+public class deleteSongDefinition extends BaseDefinition {
     public void deleteSong(){
         String expectedDeletedMsg = "Deleted playlist \"Test.\"";
         LoginPage loginpage = new LoginPage(getDriver());

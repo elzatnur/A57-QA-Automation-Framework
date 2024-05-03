@@ -2,8 +2,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import stepDefinitons.BaseDefinition;
 
-public class HomeWork19 extends BaseTest{
+public class deletePlayListDefinition extends BaseDefinition {
     @Test
     public void deletePlayList() throws InterruptedException{
 

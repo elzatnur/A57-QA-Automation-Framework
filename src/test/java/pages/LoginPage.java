@@ -22,6 +22,8 @@ public class LoginPage extends BasePages{
     WebElement passwordFieldLocator;
     @FindBy(css = "button[type='submit']")
     WebElement loginBtnLocator;
+    @FindBy(xpath = "//a[@href='registration']")
+    WebElement registrationLink;
 
     //helper page methods
 
@@ -54,5 +56,8 @@ public class LoginPage extends BasePages{
         passwordFieldLocator.clear();
         passwordFieldLocator.sendKeys(password);
         return this;
+    }
+    public WebElement getRegistrationLink(){
+        return registrationLink;
     }
 }

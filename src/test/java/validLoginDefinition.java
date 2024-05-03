@@ -1,13 +1,11 @@
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
+import stepDefinitons.BaseDefinition;
 
-public class LoginTest extends BaseTest{
+public class validLoginDefinition extends BaseDefinition {
     @Test
     public void loginValidTest(){
         //LoginPage loginPage = new LoginPage(driver);

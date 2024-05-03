@@ -1,12 +1,10 @@
-import net.bytebuddy.implementation.bytecode.Throw;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
+import stepDefinitons.BaseDefinition;
 
-public class HomeWork18 extends BaseTest {
+public class playFirstSong extends BaseDefinition {
 
     @Test
     public void playSong()throws InterruptedException{

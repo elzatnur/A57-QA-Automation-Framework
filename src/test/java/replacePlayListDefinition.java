@@ -1,10 +1,11 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HomePage;
 import pages.LoginPage;
 import pages.PlaylistPage;
+import stepDefinitons.BaseDefinition;
+
 @Test
-public class HomeWork21 extends BaseTest{
+public class replacePlayListDefinition extends BaseDefinition {
     public void replacePlayListName () throws InterruptedException{
         String PlayListName = "Test111";
         String updatedPlaylistMsg = "Updated playlist \""+PlayListName+".\"";
