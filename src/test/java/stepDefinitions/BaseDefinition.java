@@ -1,4 +1,4 @@
-package stepDefinitons;
+package stepDefinitions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -26,27 +26,28 @@ public class BaseDefinition {
             return threadDriver.get();
         }
         @Before
-        @Parameters({"url"})
-        public void launchBrowser(String url) throws MalformedURLException {
-            //ChromeOptions options = new ChromeOptions();
-            // options.addArguments("--remote-allow-origins=*");
-            //driver = new ChromeDriver(options);
-            //driver = new FirefoxDriver();
-            //driver = pickBrowser(System.getProperty("browser"));
-            threadDriver.set(pickBrowser(System.getProperty("browser")));
+        public void launchBrowser() throws MalformedURLException {
+                threadDriver.set(pickBrowser(System.getProperty("browser")));
+                getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(timeSeconds));
 
-            //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-            getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(timeSeconds));
-            //driver.manage().window().maximize();
-            getDriver().manage().window().maximize();
-            getDriver().get(url);
-            System.out.println(getDriver());
-        }
-        //return driver = new RemoteWebDriver(new URL("https://" +userName + ":" +accessKey + hubURL), capabilities);
-        //@AfterMethod
-        //public void closeBrowser() {
-        //driver.quit();
-        //}
+                //ChromeOptions options = new ChromeOptions();
+                // options.addArguments("--remote-allow-origins=*");
+                //driver = new ChromeDriver(options);
+                //driver = new FirefoxDriver();
+                //driver = pickBrowser(System.getProperty("browser"));
+                //threadDriver.set(pickBrowser(System.getProperty("browser")));
+                //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                //getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(timeSeconds));
+                //driver.manage().window().maximize();
+                //getDriver().manage().window().maximize();
+                //getDriver().get(url);
+                //System.out.println(getDriver());
+                //return driver = new RemoteWebDriver(new URL("https://" +userName + ":" +accessKey + hubURL), capabilities);
+                //@AfterMethod
+                //public void closeBrowser() {
+                //driver.quit();
+                }
+
         public WebDriver lambdaTest() throws MalformedURLException  {
             String hubUrl = "@hub.lambdatest.com/wd/hub";
             String userName = "elzat.nurmanbetova";
@@ -55,8 +56,8 @@ public class BaseDefinition {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("browserName", "chrome");
             capabilities.setCapability("browserVersion", "123.0");
-
             HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+            //HashMap<String, Object> ltOptions = new HashMap<String, Object>();
             ltOptions.put("username", userName);
             ltOptions.put("accessKey", accessKey);
             ltOptions.put("project", "KoelTest");
@@ -65,9 +66,6 @@ public class BaseDefinition {
             ltOptions.put("plugin", "java-java");
             capabilities.setCapability("LT:Options", ltOptions);
             return driver = new RemoteWebDriver(new URL("https://" + userName + ":" + accessKey + hubUrl), capabilities);
-        }
-        public void closeBrowser(){
-            driver.quit();
         }
 
         public WebDriver pickBrowser(String browser) throws MalformedURLException {

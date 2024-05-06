@@ -4,7 +4,7 @@
     <parameter name="url" value="https://qa.koel.app/"/>
     <test name="CucumberRunner Test" preserve-order="false">
         <classes>
-            <class name="stepDefinitons.CucumberRunner"/>
+            <class name="stepDefinitions.CucumberRunner"/>
         </classes>
     </test>
 </suite>

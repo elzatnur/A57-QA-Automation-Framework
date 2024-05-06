@@ -37,26 +37,6 @@ public class LoginPage extends BasePages{
         findElement(loginBtn).click();
 
     }
-    public void login (){
-        provideEmail("elzat.nurmanbetova@testpro.io");
-        providePassword("kochkor123-Q!");
-        clickSubmit();
-    }
-    //Method using Page factory
-    public LoginPage clickSubmitButton(){
-        loginBtnLocator.click();
-        return this;
-    }
-    public LoginPage provideEmailLogin(String email){
-        emailFieldLocator.clear();
-        emailFieldLocator.sendKeys(email);
-        return this;
-    }
-    public LoginPage providePasswordLogin(String password){
-        passwordFieldLocator.clear();
-        passwordFieldLocator.sendKeys(password);
-        return this;
-    }
     public WebElement getRegistrationLink(){
         return registrationLink;
     }

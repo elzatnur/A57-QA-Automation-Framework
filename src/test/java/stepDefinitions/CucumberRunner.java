@@ -1,4 +1,4 @@
-package stepDefinitons;
+package stepDefinitions;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -16,8 +16,7 @@ import org.testng.annotations.Test;
     public class CucumberRunner extends AbstractTestNGCucumberTests {
         private TestNGCucumberRunner testNGCucumberRunner;
         @BeforeClass(alwaysRun = true)
-        public void setUpCucumber(){
-            testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
+        public void setUpCucumber(){testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
         }
         @Override
         @DataProvider(parallel = true)
@@ -25,7 +24,6 @@ import org.testng.annotations.Test;
             return super.scenarios();
         }
         @AfterClass(alwaysRun = true)
-        public void tearDownClass(){
-            testNGCucumberRunner.finish();
+        public void tearDownClass(){testNGCucumberRunner.finish();
         }
     }

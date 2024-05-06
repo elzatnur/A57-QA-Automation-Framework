@@ -1,4 +1,4 @@
-package stepDefinitons;
+package stepDefinitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -14,58 +14,44 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.HomePage;
 import pages.LoginPage;
-import pages.PlaylistPage;
 
 import java.time.Duration;
 
-public class LoginStepDefintions {
-
-    WebDriver driver;
-    WebDriverWait wait;
-    @Before
-    public void openBrowser() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("-.c-disable-notifications");
-        driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    }
-
+public class LoginStepDefinitions {
     @Given("I open Login Page")
     public void iOpenLoginPage() {
-        driver.get("https://qa.koel.app");
+        BaseDefinition.getDriver().get("https://qa.koel.app");
     }
 
     @When("I enter email {string}")
     public void iEnterEmail(String email) {
         //wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='email']"))).sendKeys(email);
-        LoginPage loginpage = new LoginPage(driver);
+        LoginPage loginpage = new LoginPage(BaseDefinition.getDriver());
         loginpage.provideEmail(email);
     }
 
 
     @And("i enter password {string}")
     public void iEnterPassword(String password) {
-        LoginPage loginpage = new LoginPage(driver);
+        LoginPage loginpage = new LoginPage(BaseDefinition.getDriver());
         loginpage.providePassword(password);
     }
 
 
     @And("I submit")
     public void iSubmit() {
-        LoginPage loginpage = new LoginPage(driver);
+        LoginPage loginpage = new LoginPage(BaseDefinition.getDriver());
         loginpage.clickSubmit();
     }
 
     @Then("I am logged in")
     public void iAmLoggedIn() {
-        HomePage homepage = new HomePage(driver);
+        HomePage homepage = new HomePage(BaseDefinition.getDriver());
         Assert.assertTrue(homepage.getUserAvatar().isDisplayed());
     }
     @After
     public void iCloseBrowser(){
-        driver.quit();
+        BaseDefinition.getDriver().quit();
     }
 
     @And("I enter incorrect password {string}")
