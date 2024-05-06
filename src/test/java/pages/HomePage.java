@@ -34,7 +34,7 @@ public class HomePage extends BasePages {
     WebElement getDeleteMessage;
     @FindBy(xpath = "//div[@class='text']")
     WebElement emptyPage;
-    @FindBy(xpath = "//div[@class='heading-wrapper']")
+    @FindBy(xpath = "//a[@href='#!/songs']")
     WebElement allSongsPage;
 
 

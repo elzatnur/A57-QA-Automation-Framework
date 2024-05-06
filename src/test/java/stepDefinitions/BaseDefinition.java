@@ -11,7 +11,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.Parameters;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
@@ -56,8 +55,7 @@ public class BaseDefinition {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("browserName", "chrome");
             capabilities.setCapability("browserVersion", "123.0");
-            HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-            //HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+            HashMap<String, Object> ltOptions = new HashMap<>();
             ltOptions.put("username", userName);
             ltOptions.put("accessKey", accessKey);
             ltOptions.put("project", "KoelTest");
@@ -107,7 +105,7 @@ public class BaseDefinition {
         }
         @After
         public void tearDown(){
-            threadDriver.get().close();
-            threadDriver.remove();
+            threadDriver.get().quit();
+
         }
     }

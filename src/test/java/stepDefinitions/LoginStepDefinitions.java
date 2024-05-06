@@ -75,9 +75,7 @@ public class LoginStepDefinitions {
     public void iEnterEmptyPassword(String password) {
         LoginPage loginpage = new LoginPage(BaseDefinition.getDriver());
         loginpage.providePassword(password);
-
     }
-
     @When("I enter not existing email {string}")
     public void iEnterNotExistingEmail(String email) {
         LoginPage loginpage = new LoginPage(BaseDefinition.getDriver());
@@ -87,18 +85,24 @@ public class LoginStepDefinitions {
     @And("I click all songs button")
     public void iClickAllSongsButton() {
         HomePage homepage = new HomePage(BaseDefinition.getDriver());
-        homepage.allSongs();
+        homepage.clickPlay();
     }
 
     @Then("I get all songs page")
     public void iGetAllSongsPage() {
         HomePage homepage = new HomePage(BaseDefinition.getDriver());
-        homepage.allSongPage();
+        homepage.allSongs();
     }
-
     @And("I click first Song")
     public void iClickFirstSong() {
         HomePage homepage = new HomePage(BaseDefinition.getDriver());
         homepage.clickPlay();
+    }
+
+    @Then("I got first song plays")
+    public void iGotFirstSongPlays() {
+        HomePage homepage = new HomePage(BaseDefinition.getDriver());
+        homepage.isSongPlays();
+        Assert.assertTrue(homepage.isSongPlays());
     }
 }
