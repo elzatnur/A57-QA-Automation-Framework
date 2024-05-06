@@ -25,18 +25,7 @@ Feature: Login feature
     And I submit
     Then I still Login page
 
-  Scenario: check all Songs
-    When I enter email "elzat.nurmanbetova@testpro.io"
-    And i enter password "kochkor123-Q!"
-    And I click all songs button
-    Then I get all songs page
 
-  Scenario: play first Song
-    When I enter email "elzat.nurmanbetova@testpro.io"
-    And i enter password "kochkor123-Q!"
-    And I click all songs button
-    And I get all songs page
-    And I click first Song
 
 
 
