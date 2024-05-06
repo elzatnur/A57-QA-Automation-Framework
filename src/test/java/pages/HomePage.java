@@ -34,9 +34,15 @@ public class HomePage extends BasePages {
     WebElement getDeleteMessage;
     @FindBy(xpath = "//div[@class='text']")
     WebElement emptyPage;
+    @FindBy(xpath = "//div[@class='heading-wrapper']")
+    WebElement allSongsPage;
 
 
     //Method using Page Factory
+    public HomePage allSongPage(){
+        allSongsPage.isDisplayed();
+        return this;
+    }
 
     public HomePage playListName(String name) {
         playlistTest.click();

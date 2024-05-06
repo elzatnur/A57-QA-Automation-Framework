@@ -18,6 +18,7 @@ public class PlaylistPage extends BasePages {
     @FindBy(css = "div.success.show")
     WebElement renamePlaylistSuccessMsg;
 
+
     public PlaylistPage firstPlaylist(){
         actions.doubleClick(getFirstPlaylist).perform();
         return this;

@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.PlaylistPage;
 
 import java.time.Duration;
 
@@ -78,12 +79,6 @@ public class LoginStepDefintions {
         Assert.assertTrue(loginpage.getRegistrationLink().isDisplayed());
     }
 
-    @When("I enter not existing email")
-    public void iEnterNotExistingEmail(String email) {
-        LoginPage loginpage = new LoginPage(BaseDefinition.getDriver());
-        loginpage.provideEmail(email);
-    }
-
     @When("I enter Empty email {string}")
     public void iEnterEmptyEmail(String email) {
         LoginPage loginpage = new LoginPage(BaseDefinition.getDriver());
@@ -95,5 +90,29 @@ public class LoginStepDefintions {
         LoginPage loginpage = new LoginPage(BaseDefinition.getDriver());
         loginpage.providePassword(password);
 
+    }
+
+    @When("I enter not existing email {string}")
+    public void iEnterNotExistingEmail(String email) {
+        LoginPage loginpage = new LoginPage(BaseDefinition.getDriver());
+        loginpage.provideEmail(email);
+    }
+
+    @And("I click all songs button")
+    public void iClickAllSongsButton() {
+        HomePage homepage = new HomePage(BaseDefinition.getDriver());
+        homepage.allSongs();
+    }
+
+    @Then("I get all songs page")
+    public void iGetAllSongsPage() {
+        HomePage homepage = new HomePage(BaseDefinition.getDriver());
+        homepage.allSongPage();
+    }
+
+    @And("I click first Song")
+    public void iClickFirstSong() {
+        HomePage homepage = new HomePage(BaseDefinition.getDriver());
+        homepage.clickPlay();
     }
 }

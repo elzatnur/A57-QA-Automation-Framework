@@ -9,7 +9,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
-    @CucumberOptions(features = {"src/test/resources/features"},
+    @CucumberOptions(features = {"src/test/resources/features/LoginTest.feature"},
             publish=true
     )
     @Test
